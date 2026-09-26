@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Administrare coduri</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Ecran de login -->
+  <main id="login-view" class="page hidden">
+    <section class="card">
+      <h1>Administrare</h1>
+      <p class="lead">Autentifică-te pentru a vedea codurile primite.</p>
+      <form id="login-form">
+        <input id="user" name="user" type="text" placeholder="Utilizator" autocomplete="username" required>
+        <input id="password" name="password" type="password" placeholder="Parolă" autocomplete="current-password" required>
+        <button type="submit" id="login-btn">Intră</button>
+        <p id="login-message" class="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Lista de coduri -->
+  <main id="codes-view" class="admin hidden">
+    <div class="admin-header">
+      <h1>Coduri primite</h1>
+      <div>
+        <button type="button" id="refresh-btn" class="btn-secondary">Reîncarcă</button>
+        <button type="button" id="logout-btn" class="btn-secondary">Ieșire</button>
+      </div>
+    </div>
+
+    <form id="filters" class="filters">
+      <label>De la <input type="date" name="from"></label>
+      <label>Până la <input type="date" name="to"></label>
+      <label>Caută cod <input type="search" name="q" inputmode="numeric" maxlength="6" placeholder="ex: 123"></label>
+      <button type="submit">Filtrează</button>
+      <button type="button" id="clear-btn" class="btn-secondary">Resetează</button>
+      <button type="button" id="csv-btn" class="btn-secondary">Export CSV</button>
+    </form>
+
+    <p id="count" class="count"></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Cod</th><th>Data / ora</th><th>IP</th><th>Status</th><th></th></tr>
+        </thead>
+        <tbody id="codes-body"></tbody>
+      </table>
+      <div id="empty" class="empty hidden">Niciun cod găsit.</div>
+    </div>
+  </main>
+
+  <script src="/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Introdu codul</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="logo-wrap">
+      <!-- Înlocuiește public/logo.svg cu logo-ul real (sau schimbă src-ul, ex: /logo.png) -->
+      <img class="logo" src="/logo.svg" alt="Logo">
+    </header>
+
+    <section class="card">
+      <!-- TEXT: editează titlul și descrierea de mai jos -->
+      <h1>Introdu codul primit</h1>
+      <p class="lead">Scrie mai jos codul de 6 cifre pe care l-ai primit și apasă „Trimite”.</p>
+
+      <form id="code-form" novalidate>
+        <label for="code" class="sr-only">Cod (6 cifre)</label>
+        <input id="code" name="code" type="text" inputmode="numeric" pattern="\d{6}" maxlength="6"
+               autocomplete="off" placeholder="000000" required>
+
+        <!-- Honeypot anti-bot: ascuns pentru oameni, nu-l șterge -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" id="submit-btn">Trimite</button>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
