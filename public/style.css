@@ -29,12 +29,30 @@ body {
 
 .page {
   min-height: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 28px;
-  padding: 32px 16px;
+  gap: 48px;
+  padding: 48px 24px;
+}
+
+/* Coloana din stânga: text */
+.intro {
+  flex: 1 1 380px;
+  max-width: 520px;
+  text-align: left;
+}
+
+/* Coloana din dreapta: formular */
+.card { flex: 0 1 420px; }
+
+/* Pe ecrane înguste, coloanele se așază una sub alta */
+@media (max-width: 720px) {
+  .page { gap: 28px; }
+  .intro { flex-basis: 100%; text-align: center; }
 }
 
 .card {
@@ -50,6 +68,13 @@ body {
 
 h1 { margin: 0 0 8px; font-size: 1.5rem; }
 .lead { margin: 0 0 24px; color: var(--muted); }
+
+.intro h1 { font-size: 2.75rem; line-height: 1.1; margin: 0 0 20px; }
+.intro .lead { font-size: 1.125rem; margin: 0; }
+
+@media (max-width: 720px) {
+  .intro h1 { font-size: 2rem; }
+}
 
 form { display: flex; flex-direction: column; gap: 14px; }
 

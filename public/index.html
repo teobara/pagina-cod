@@ -11,11 +11,13 @@
 </head>
 <body>
   <main class="page">
-    <section class="card">
-      <!-- TEXT: editează titlul și descrierea de mai jos -->
+    <!-- TEXT: editează titlul și descrierea de mai jos -->
+    <div class="intro">
       <h1>Introdu codul primit</h1>
       <p class="lead">Scrie mai jos codul de 6 cifre pe care l-ai primit și apasă „Trimite”.</p>
+    </div>
 
+    <section class="card">
       <form id="code-form" novalidate>
         <label for="code" class="sr-only">Cod (6 cifre)</label>
         <input id="code" name="code" type="text" inputmode="numeric" pattern="\d{6}" maxlength="6"
