@@ -64,7 +64,7 @@ h1 { margin: 0 0 8px; font-size: 1.5rem; }
 
 form { display: flex; flex-direction: column; gap: 14px; }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="search"] {
+input[type="text"] {
   width: 100%;
   padding: 12px 14px;
   font-size: 1rem;
@@ -111,28 +111,3 @@ button:disabled { opacity: 0.6; cursor: default; }
   white-space: nowrap;
 }
 .hp { left: -9999px; }
-
-/* ---------- Admin ---------- */
-.admin { max-width: 960px; margin: 0 auto; padding: 32px 16px; }
-.admin-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
-.admin-header h1 { margin: 0; }
-.btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
-.btn-secondary:hover:not(:disabled) { background: var(--border); }
-.btn-small { padding: 6px 10px; font-size: 0.85rem; }
-
-.filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin-bottom: 16px; }
-.filters label { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; color: var(--muted); }
-.filters input { width: auto; padding: 8px 10px; }
-
-.table-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); }
-table { width: 100%; border-collapse: collapse; }
-th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
-th { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
-tr:last-child td { border-bottom: 0; }
-td.code { font-family: ui-monospace, Consolas, monospace; font-size: 1.05rem; letter-spacing: 0.1em; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
-.badge.nou { background: rgba(37, 99, 235, 0.15); color: var(--accent); }
-.badge.verificat { background: rgba(21, 128, 61, 0.15); color: var(--success); }
-.empty { padding: 32px; text-align: center; color: var(--muted); }
-.count { color: var(--muted); font-size: 0.9rem; margin: 0 0 8px; }
-.hidden { display: none !important; }

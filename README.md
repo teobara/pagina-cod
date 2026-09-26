@@ -1,7 +1,6 @@
-# Pagină cod (6 cifre) + admin
+# Pagină cod (6 cifre)
 
-- `/` — pagina publică: logo, text, câmp pentru cod (exact 6 cifre).
-- `/admin` — login + tabel cu codurile primite (cele mai noi primele), filtrare după dată/cod, status nou/verificat, export CSV.
+Pagină publică: logo, text, câmp pentru cod (exact 6 cifre). Codurile trimise se salvează în SQLite (tabelul `codes`) și apar și în log-urile serverului, pe linii de forma `[cod] 123456 ...`.
 
 Stack: Node.js (>= 22.13) + Express + SQLite (modulul încorporat `node:sqlite`, fără dependențe native).
 
@@ -9,7 +8,6 @@ Stack: Node.js (>= 22.13) + Express + SQLite (modulul încorporat `node:sqlite`,
 
 ```bash
 npm install
-cp .env.example .env   # apoi editează ADMIN_USER / ADMIN_PASSWORD
 npm run dev            # http://localhost:3100
 ```
 
@@ -20,18 +18,15 @@ npm run dev            # http://localhost:3100
 
 ## Deploy pe Railway
 
-1. Urcă proiectul într-un repo Git (**privat** de preferat). `.env` și baza de date sunt deja în `.gitignore`.
-2. Railway → *New Project* → *Deploy from GitHub repo* → alege repo-ul.
-3. *Variables*: setează `ADMIN_USER`, `ADMIN_PASSWORD`, `SESSION_SECRET` (șir aleator lung) și `DB_PATH=/data/codes.db`.
-4. *Settings → Volumes*: adaugă un volum montat la `/data` (altfel codurile se pierd la fiecare redeploy).
-5. *Settings → Networking*: *Generate Domain*.
+1. *New Project* → *Deploy from GitHub repo* → alege repo-ul.
+2. (Recomandat) *Variables*: `DB_PATH=/data/codes.db` + un volum montat la `/data`, altfel baza de date se pierde la fiecare redeploy.
+3. *Settings → Networking*: *Generate Domain*.
 
 `PORT` e setat automat de Railway.
 
 ## Protecții incluse
 
 - Validare 6 cifre atât în browser, cât și pe server.
-- Rate limiting: 5 trimiteri/minut/IP; 10 încercări de login / 15 min / IP.
+- Rate limiting: 5 trimiteri/minut/IP.
 - Honeypot anti-bot (câmp ascuns `website`).
-- Sesiune admin în cookie semnat HMAC, `HttpOnly`, `SameSite=Strict`, `Secure` în producție; expiră după 8 ore.
 - Header-e de securitate (CSP, `X-Frame-Options`, etc.).
