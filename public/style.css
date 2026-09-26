@@ -1,8 +1,11 @@
 :root {
-  --bg: #ffffff;
-  --card: #f0f2f5;
-  --text: #1f2937;
+  --bg: rgb(28, 30, 33);      /* fundal închis */
+  --card: #f0f2f5;            /* caseta formularului */
+  --input-bg: #ffffff;        /* câmpul de input, alb în casetă */
+  --text: #1f2937;            /* text închis, pe casetă */
   --muted: #6b7280;
+  --intro-text: #ffffff;      /* titlul din stânga, pe fundalul închis */
+  --intro-muted: #c7ccd1;     /* descrierea din stânga */
   --border: #d1d5db;
   --accent: #2563eb;
   --accent-hover: #1d4ed8;
@@ -69,8 +72,8 @@ body {
 h1 { margin: 0 0 8px; font-size: 1.5rem; }
 .lead { margin: 0 0 24px; color: var(--muted); }
 
-.intro h1 { font-size: 2.75rem; line-height: 1.1; margin: 0 0 20px; }
-.intro .lead { font-size: 1.125rem; margin: 0; }
+.intro h1 { font-size: 2.75rem; line-height: 1.1; margin: 0 0 20px; color: var(--intro-text); }
+.intro .lead { font-size: 1.125rem; margin: 0; color: var(--intro-muted); }
 
 @media (max-width: 720px) {
   .intro h1 { font-size: 2rem; }
@@ -83,7 +86,7 @@ input[type="text"] {
   padding: 12px 14px;
   font-size: 1rem;
   color: var(--text);
-  background: var(--bg);
+  background: var(--input-bg);
   border: 1px solid var(--border);
   border-radius: 8px;
   outline: none;
