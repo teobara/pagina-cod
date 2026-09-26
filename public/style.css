@@ -9,6 +9,8 @@
   --border: #d1d5db;
   --accent: #2563eb;
   --accent-hover: #1d4ed8;
+  --green: #25d366;           /* buton trimite */
+  --green-hover: #1eb959;
   --success: #15803d;
   --error: #b91c1c;
   --radius: 12px;
@@ -81,39 +83,49 @@ h1 { margin: 0 0 8px; font-size: 1.5rem; }
 
 form { display: flex; flex-direction: column; gap: 14px; }
 
-input[type="text"] {
-  width: 100%;
-  padding: 12px 14px;
-  font-size: 1rem;
+/* Cele 6 casete de cifre (stil OTP) */
+.code-inputs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.code-inputs .digit {
+  width: 48px;
+  height: 58px;
+  padding: 0;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
   color: var(--text);
   background: var(--input-bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
   outline: none;
-}
-
-#code {
-  text-align: center;
-  font-size: 1.75rem;
-  letter-spacing: 0.5em;
-  padding-left: calc(14px + 0.5em); /* compensează letter-spacing ca textul să rămână centrat */
   font-variant-numeric: tabular-nums;
+  transition: border-color 0.12s, box-shadow 0.12s;
 }
+.code-inputs .digit:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.25);
+}
+.code-inputs .digit.invalid { border-color: var(--error); }
 
-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); }
-input.invalid { border-color: var(--error); }
+@media (max-width: 400px) {
+  .code-inputs { gap: 6px; }
+  .code-inputs .digit { width: 42px; height: 52px; font-size: 1.4rem; }
+}
 
 button {
   padding: 12px 16px;
   font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: var(--accent);
+  font-weight: 700;
+  color: #000;
+  background: var(--green);
   border: 0;
   border-radius: 8px;
   cursor: pointer;
 }
-button:hover:not(:disabled) { background: var(--accent-hover); }
+button:hover:not(:disabled) { background: var(--green-hover); }
 button:disabled { opacity: 0.6; cursor: default; }
 
 .message { margin: 0; min-height: 1.5em; font-weight: 500; }

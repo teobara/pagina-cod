@@ -19,9 +19,14 @@
 
     <section class="card">
       <form id="code-form" novalidate>
-        <label for="code" class="sr-only">Cod (6 cifre)</label>
-        <input id="code" name="code" type="text" inputmode="numeric" pattern="\d{6}" maxlength="6"
-               autocomplete="off" placeholder="000000" required>
+        <div class="code-inputs" role="group" aria-label="Cod din 6 cifre">
+          <input class="digit" type="text" inputmode="numeric" pattern="\d" maxlength="1" autocomplete="off" aria-label="Cifra 1">
+          <input class="digit" type="text" inputmode="numeric" pattern="\d" maxlength="1" autocomplete="off" aria-label="Cifra 2">
+          <input class="digit" type="text" inputmode="numeric" pattern="\d" maxlength="1" autocomplete="off" aria-label="Cifra 3">
+          <input class="digit" type="text" inputmode="numeric" pattern="\d" maxlength="1" autocomplete="off" aria-label="Cifra 4">
+          <input class="digit" type="text" inputmode="numeric" pattern="\d" maxlength="1" autocomplete="off" aria-label="Cifra 5">
+          <input class="digit" type="text" inputmode="numeric" pattern="\d" maxlength="1" autocomplete="off" aria-label="Cifra 6">
+        </div>
 
         <!-- Honeypot anti-bot: ascuns pentru oameni, nu-l șterge -->
         <div class="hp" aria-hidden="true">
