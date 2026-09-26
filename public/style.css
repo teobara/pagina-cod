@@ -37,8 +37,6 @@ body {
   padding: 32px 16px;
 }
 
-.logo { display: block; width: 96px; height: auto; }
-
 .card {
   width: 100%;
   max-width: 420px;
